@@ -34,6 +34,7 @@ command_line_utilities:
   - libguestfs-tools
   - make
   - ncdu
+  - net-tools
   - nmap
   - pandoc
   - qemu-kvm
