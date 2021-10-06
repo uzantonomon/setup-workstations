@@ -1,0 +1,29 @@
+---
+# tasks file for ansible/command-line-utilities
+
+- name: Add keys.
+  apt_key:
+    url: "{{ item.0 }}"
+    state: present
+    keyring: "{{ item.1 }}"
+  with_together:
+    - "{{ keys }}"
+    - "{{ keys_paths }}"
+  become: true
+
+- name: Install repositories.
+  apt_repository:
+    repo: "{{ item.0 }}"
+    filename: "{{ item.1 }}"
+    state: present
+    update_cache: yes
+  with_together:
+    - "{{ repositories }}"
+    - "{{ repositories_names }}"
+  become: true
+
+- name: Install command line utilities.
+  apt:
+    name: '{{ command_line_utilities }}'
+    state: latest
+  become: true

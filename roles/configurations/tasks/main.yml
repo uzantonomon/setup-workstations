@@ -1,0 +1,10 @@
+---
+# tasks file for roles/configurations
+
+- name: Add my user to the correct groups.
+  user:
+    name: '{{ username }}'
+    groups: '{{ local_groups }}'
+    append: yes
+    shell: '{{ shell }}'
+  become: true

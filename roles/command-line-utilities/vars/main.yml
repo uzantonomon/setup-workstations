@@ -1,0 +1,46 @@
+---
+# vars file for ansible/command-line-utilities
+
+keys:
+  - https://download.docker.com/linux/ubuntu/gpg
+  - https://apt.releases.hashicorp.com/gpg
+
+keys_paths:
+  - /usr/share/keyrings/docker-archive-keyring.gpg
+  - /usr/share/keyrings/hasicorp-keyring.gpg
+
+repositories:
+  - deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release | lower }} stable
+  - deb [arch=amd64 signed-by=/usr/share/keyrings/hasicorp-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release | lower }} main
+
+repositories_names:
+  - docker
+  - hashicorp
+
+command_line_utilities:
+  - apt-transport-https
+  - ca-certificates
+  - containerd.io
+  - curl
+  - default-jre
+  - docker-ce
+  - docker-ce-cli
+  - gcc
+  - gnupg
+  - htop
+  - iftop
+  - imagemagick
+  - iotop
+  - libguestfs-tools
+  - make
+  - ncdu
+  - nmap
+  - pandoc
+  - qemu-kvm
+  - shellcheck
+  - smbclient
+  - terraform
+  - tmux
+  - tree
+  - weasyprint
+  - zsh

@@ -1,0 +1,9 @@
+---
+
+- name: Configure workstations.
+  hosts: localhost
+
+  roles:
+    - command-line-utilities
+    - configurations
+    - gui-utilities

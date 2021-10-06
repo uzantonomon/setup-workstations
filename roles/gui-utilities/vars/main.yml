@@ -1,0 +1,34 @@
+---
+# vars file for roles/gui-utilities
+
+keys:
+  - https://packages.microsoft.com/keys/microsoft.asc
+  - https://download.spotify.com/debian/pubkey_0D811D58.gpg
+
+keys_paths:
+  - /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+  - /etc/apt/trusted.gpg.d/packages.spotify.gpg
+
+repositories:
+  - deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main
+  - deb http://repository.spotify.com stable non-free
+
+repositories_names:
+  - vscode
+  - spotify
+
+gui_utilities:
+  - code
+  - fwbuilder
+  - nautilus-nextcloud
+  - nextcloud-desktop
+  - spotify-client
+  - thunderbird
+  - virt-manager
+
+deb_urls:
+  - https://discord.com/api/download?platform=linux&format=deb
+  - https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+  - https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb
+  - https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website
+  - https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_8_0_836f43f6f6be4149/upwork_5.6.8.0_amd64.deb
