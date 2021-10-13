@@ -23,6 +23,7 @@ gui_utilities:
   - nautilus-nextcloud
   - nextcloud-desktop
   - spotify-client
+  - syncthing-gtk
   - thunderbird
   - virt-manager
 
