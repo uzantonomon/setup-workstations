@@ -32,4 +32,4 @@ deb_urls:
   - https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
   - https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb
   - https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website
-  - https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_8_0_836f43f6f6be4149/upwork_5.6.8.0_amd64.deb
+  - https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_9_3_10c2eb9781db4d7f/upwork_5.6.9.3_amd64.deb

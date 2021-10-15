@@ -27,3 +27,14 @@
     name: '{{ command_line_utilities }}'
     state: latest
   become: true
+
+- name: Install binaries.
+  get_url:
+    url: "{{ item.0 }}"
+    dest: "/usr/local/bin/{{ item.1 }}"
+    force: yes
+    mode: 0755
+  with_together:
+    - "{{ binaries_url }}"
+    - "{{ binaries_name }}"
+  become: true
