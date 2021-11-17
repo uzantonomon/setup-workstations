@@ -1,5 +1,10 @@
 ---
-# tasks file for ansible/command-line-utilities
+# tasks file for roles/gui-utilities
+
+- name: Include the necessary variables for home.
+  include_vars: ../vars/gui-utilities-home.yml
+  tags:
+    - home
 
 - name: Add keys.
   apt_key:
@@ -22,19 +27,14 @@
     - "{{ repositories_names }}"
   become: true
 
-- name: Install command line utilities.
+- name: Install gui utilities.
   apt:
-    name: '{{ command_line_utilities }}'
+    name: '{{ gui_utilities }}'
     state: latest
   become: true
 
-- name: Install binaries.
-  get_url:
-    url: "{{ item.0 }}"
-    dest: "/usr/local/bin/{{ item.1 }}"
-    force: yes
-    mode: 0755
-  with_together:
-    - "{{ binaries_url }}"
-    - "{{ binaries_name }}"
+- name: Install downloaded debs.
+  apt:
+    deb: "{{ item }}"
+  with_items: "{{ deb_urls }}"
   become: true

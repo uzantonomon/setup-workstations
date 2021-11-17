@@ -1,5 +1,5 @@
 ---
-# vars file for roles/gui-utilities
+# vars file for roles/gui-utilities-work
 
 keys:
   - https://packages.microsoft.com/keys/microsoft.asc
@@ -23,13 +23,7 @@ gui_utilities:
   - nautilus-nextcloud
   - nextcloud-desktop
   - spotify-client
-  - syncthing-gtk
-  - thunderbird
   - virt-manager
 
-deb_urls:
-  - https://discord.com/api/download?platform=linux&format=deb
-  - https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-  - https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb
-  - https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website
-  - https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_9_3_10c2eb9781db4d7f/upwork_5.6.9.3_amd64.deb
+#deb_urls:
+#  - https://discord.com/api/download?platform=linux&format=deb

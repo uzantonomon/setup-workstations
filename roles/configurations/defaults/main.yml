@@ -1,9 +1,0 @@
----
-# defaults file for roles/configurations
-
-dotfiles_repository: "https://github.com/uzantonomon/dotfiles.git"
-dotfiles_local_destination: "~/dotfiles"
-
-dotfiles_home: "~"
-dotfiles_files:
-  - config/user-dirs.dirs

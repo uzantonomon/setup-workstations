@@ -1,9 +1,44 @@
 ---
 
-- name: Configure workstations.
+- name: Configure workstation.
   hosts: localhost
 
-  roles:
-    - command-line-utilities
-    - configurations
-    - gui-utilities
+  vars_files:
+    - defaults.yml
+
+  tasks:
+    - name: Install command line utilities for home workstations.
+      import_tasks: tasks/command-line-utilities-home.yml
+      when: home
+      tags:
+        - home
+
+    - name: Install command line utilities for work workstations.
+      import_tasks: tasks/command-line-utilities-work.yml
+      when: work
+      tags:
+        - work
+
+    - name: Setup configurations for home workstations.
+      import_tasks: tasks/configurations-home.yml
+      when: home
+      tags:
+        - home
+
+    - name: Setup configurations for work workstations.
+      import_tasks: tasks/configurations-work.yml
+      when: work
+      tags:
+        - work
+
+    - name: Install GUI utilities for home workstations.
+      import_tasks: tasks/gui-utilities-home.yml
+      when: home
+      tags:
+        - home
+
+    - name: Install GUI utilities for work workstations.
+      import_tasks: tasks/gui-utilities-work.yml
+      when: work
+      tags:
+        - work

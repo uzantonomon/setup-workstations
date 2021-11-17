@@ -1,8 +1,0 @@
----
-# vars file for roles/configurations
-
-username: "{{ ansible_user_id }}"
-
-local_groups: docker,kvm,libvirt
-
-shell: /usr/bin/zsh

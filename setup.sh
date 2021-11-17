@@ -5,4 +5,4 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-sudo apt -y install ansible neovim
+sudo apt -y install ansible

@@ -1,7 +1,12 @@
 ---
-# tasks file for roles/gui-utilities
+# tasks file for roles/gui-utilities-work
 
-- name: Add keys.
+- name: Include the necessary variables for work.
+  include_vars: ../vars/gui-utilities-work.yml
+  tags:
+    - work
+
+- name: Add keys for work.
   apt_key:
     url: "{{ item.0 }}"
     state: present
@@ -11,7 +16,7 @@
     - "{{ keys_paths }}"
   become: true
 
-- name: Install repositories.
+- name: Install repositories for work.
   apt_repository:
     repo: "{{ item.0 }}"
     filename: "{{ item.1 }}"
@@ -22,14 +27,14 @@
     - "{{ repositories_names }}"
   become: true
 
-- name: Install gui utilities.
+- name: Install gui utilities for work.
   apt:
     name: '{{ gui_utilities }}'
     state: latest
   become: true
 
-- name: Install downloaded debs.
-  apt:
-    deb: "{{ item }}"
-  with_items: "{{ deb_urls }}"
-  become: true
+#- name: Install downloaded packages for work.
+#  apt:
+#    deb: "{{ item }}"
+#  with_items: "{{ deb_urls }}"
+#  become: true
