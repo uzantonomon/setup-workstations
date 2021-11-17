@@ -1,12 +1,12 @@
 ---
-# tasks file for ansible/command-line-utilities
+# tasks file for ansible/command-line-utilities-home
 
 - name: Include the necessary variables for home.
   include_vars: ../vars/command-line-utilities-home.yml
   tags:
     - home
 
-- name: Add keys.
+- name: Add keys for home.
   apt_key:
     url: "{{ item.0 }}"
     state: present
@@ -16,7 +16,7 @@
     - "{{ keys_paths }}"
   become: true
 
-- name: Install repositories.
+- name: Install repositories for home.
   apt_repository:
     repo: "{{ item.0 }}"
     filename: "{{ item.1 }}"
@@ -27,19 +27,28 @@
     - "{{ repositories_names }}"
   become: true
 
-- name: Install command line utilities.
+- name: Install command line utilities for home.
   apt:
     name: '{{ command_line_utilities }}'
     state: latest
   become: true
 
-- name: Install binaries.
+- name: Get Joplin for home.
   get_url:
-    url: "{{ item.0 }}"
-    dest: "/usr/local/bin/{{ item.1 }}"
-    force: yes
+    url: https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh
+    dest: /tmp/joplin-installer.sh
     mode: 0755
-  with_together:
-    - "{{ binaries_url }}"
-    - "{{ binaries_name }}"
-  become: true
+
+- name: Install Joplin for home.
+  shell: /tmp/joplin-installer.sh
+
+#- name: Install binaries for home.
+#  get_url:
+#    url: "{{ item.0 }}"
+#    dest: "/usr/local/bin/{{ item.1 }}"
+#    force: yes
+#    mode: 0755
+#  with_together:
+#    - "{{ binaries_url }}"
+#    - "{{ binaries_name }}"
+#  become: true

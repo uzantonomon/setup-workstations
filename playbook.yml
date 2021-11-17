@@ -7,23 +7,17 @@
     - defaults.yml
 
   tasks:
-    - name: Install command line utilities for home workstations.
-      import_tasks: tasks/command-line-utilities-home.yml
-      when: home
-      tags:
-        - home
-
     - name: Install command line utilities for work workstations.
       import_tasks: tasks/command-line-utilities-work.yml
       when: work
       tags:
         - work
 
-    - name: Setup configurations for home workstations.
-      import_tasks: tasks/configurations-home.yml
-      when: home
+    - name: Install GUI utilities for work workstations.
+      import_tasks: tasks/gui-utilities-work.yml
+      when: work
       tags:
-        - home
+        - work
 
     - name: Setup configurations for work workstations.
       import_tasks: tasks/configurations-work.yml
@@ -31,14 +25,20 @@
       tags:
         - work
 
+    - name: Install command line utilities for home workstations.
+      import_tasks: tasks/command-line-utilities-home.yml
+      when: home
+      tags:
+        - home
+
     - name: Install GUI utilities for home workstations.
       import_tasks: tasks/gui-utilities-home.yml
       when: home
       tags:
         - home
 
-    - name: Install GUI utilities for work workstations.
-      import_tasks: tasks/gui-utilities-work.yml
-      when: work
+    - name: Setup configurations for home workstations.
+      import_tasks: tasks/configurations-home.yml
+      when: home
       tags:
-        - work
+        - home

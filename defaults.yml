@@ -1,8 +1,9 @@
 ---
 
-home: false
-work: true
+home: true
+work: false
 
 username: "{{ ansible_user_id }}"
-local_groups: docker,kvm,libvirt
+#local_groups: docker,kvm,libvirt
+local_groups: docker
 shell: /usr/bin/zsh

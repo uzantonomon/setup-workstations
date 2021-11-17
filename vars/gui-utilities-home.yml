@@ -1,5 +1,5 @@
 ---
-# vars file for roles/gui-utilities
+# vars file for roles/gui-utilities-home
 
 keys:
   - https://packages.microsoft.com/keys/microsoft.asc
@@ -19,16 +19,11 @@ repositories_names:
 
 gui_utilities:
   - code
-  - fwbuilder
+#  - fwbuilder
   - nautilus-nextcloud
   - nextcloud-desktop
   - spotify-client
-  - syncthing-gtk
-  - thunderbird
-  - virt-manager
+#  - virt-manager
 
 deb_urls:
   - https://discord.com/api/download?platform=linux&format=deb
-  - https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-  - https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb
-  - https://updates.insomnia.rest/downloads/ubuntu/latest?&app=com.insomnia.app&source=website

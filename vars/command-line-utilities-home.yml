@@ -1,31 +1,31 @@
 ---
-# vars file for ansible/command-line-utilities
+# vars file for ansible/command-line-utilities-home
 
-binaries_name:
-  - minikube
+#binaries_name:
+#  - minikube
 
-binaries_url:
-  - https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+#binaries_url:
+#  - https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 keys:
-  - https://apt.releases.hashicorp.com/gpg
   - https://download.docker.com/linux/ubuntu/gpg
-  - https://packages.cloud.google.com/apt/doc/apt-key.gpg
+#  - https://apt.releases.hashicorp.com/gpg
+#  - https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
 keys_paths:
-  - /usr/share/keyrings/hasicorp-keyring.gpg
   - /usr/share/keyrings/docker-archive-keyring.gpg
-  - /usr/share/keyrings/kubernetes-archive-keyring.gpg
+#  - /usr/share/keyrings/hashicorp-keyring.gpg
+#  - /usr/share/keyrings/kubernetes-archive-keyring.gpg
 
 repositories:
-  - deb [arch=amd64 signed-by=/usr/share/keyrings/hasicorp-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release | lower }} main
   - deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release | lower }} stable
-  - deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
+#  - deb [arch=amd64 signed-by=/usr/share/keyrings/hasicorp-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release | lower }} main
+#  - deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
 
 repositories_names:
   - docker
-  - hashicorp
-  - kubernetes
+#  - hashicorp
+#  - kubernetes
 
 command_line_utilities:
   - apt-transport-https
@@ -41,18 +41,21 @@ command_line_utilities:
   - iftop
   - imagemagick
   - iotop
-  - kubectl
-  - libguestfs-tools
+#  - kubectl
+#  - libguestfs-tools
+#  - libvirt-clients
+#  - libvirt-daemon-system
   - make
   - ncdu
   - net-tools
   - nmap
   - pandoc
   - python3-docker
-  - qemu-kvm
+  - python3-psutil
+#  - qemu-kvm
   - shellcheck
   - smbclient
-  - terraform
+# - terraform
   - tmux
   - tree
   - weasyprint

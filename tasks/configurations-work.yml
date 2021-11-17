@@ -12,5 +12,5 @@
 - name: Setup favorites in GNOME for work.
   dconf:
     key: "/org/gnome/shell/favorite-apps"
-    calue: "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'fwbuilder.desktop', 'appimagekit-joplin.desktop', 'org.remmina.Remmina.desktop', 'spotify.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop', 'virt-manager.desktop', 'code.desktop']"
+    value: "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'fwbuilder.desktop', 'appimagekit-joplin.desktop', 'org.remmina.Remmina.desktop', 'spotify.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop', 'virt-manager.desktop', 'code.desktop']"
     state: present
