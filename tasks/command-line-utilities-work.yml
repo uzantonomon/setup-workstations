@@ -33,6 +33,15 @@
     state: latest
   become: true
 
+- name: Get Joplin for work.
+  get_url:
+    url: https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh
+    dest: /tmp/joplin-installer.sh
+    mode: 0755
+
+- name: Install Joplin for work.
+  shell: /tmp/joplin-installer.sh
+
 #- name: Install binaries for work.
 #  get_url:
 #    url: "{{ item.0 }}"
