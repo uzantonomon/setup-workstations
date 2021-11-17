@@ -8,3 +8,9 @@
     append: yes
     shell: '{{ shell }}'
   become: true
+
+- name: Setup favorites in GNOME for work.
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: "['org.gnome.Nautilus.desktop', 'firefox.desktop', 'fwbuilder.desktop', 'org.remmina.Remmina.desktop', 'spotify.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop', 'virt-manager.desktop', 'code.desktop']"
+    state: present

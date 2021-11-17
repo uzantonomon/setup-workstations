@@ -51,6 +51,7 @@ command_line_utilities:
   - nmap
   - pandoc
   - python3-docker
+  - python3-psutil
   - qemu-kvm
   - shellcheck
   - smbclient
