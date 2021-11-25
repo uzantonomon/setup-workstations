@@ -35,6 +35,7 @@ command_line_utilities:
   - default-jre
   - docker-ce
   - docker-ce-cli
+  - fzf
   - gcc
   - gnupg
   - htop
