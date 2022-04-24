@@ -1,3 +1,4 @@
 ---
 username: "{{ ansible_user_id }}"
 shell: /usr/bin/bash
+local_groups: 

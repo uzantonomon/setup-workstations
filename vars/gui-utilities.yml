@@ -18,10 +18,10 @@ repositories_names:
   - spotify
 
 gui_utilities:
-  - code
+#  - code
   - nautilus-nextcloud
   - nextcloud-desktop
-  - spotify-client
+#  - spotify-client
 
 deb_urls:
   - https://discord.com/api/download?platform=linux&format=deb
