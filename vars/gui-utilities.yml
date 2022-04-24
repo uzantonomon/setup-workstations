@@ -2,26 +2,39 @@
 # vars file for roles/gui-utilities-home
 
 keys:
+  - https://dl.google.com/linux/linux_signing_key.pub
+  - https://www.virtualbox.org/download/oracle_vbox.asc
   - https://packages.microsoft.com/keys/microsoft.asc
   - https://download.spotify.com/debian/pubkey_0D811D58.gpg
 
 keys_paths:
+  - /etc/apt/trusted.gpg.d/packages.google.gpg
+  - /etc/apt/trusted.gpg.d/packages.oracle.gpg
   - /etc/apt/trusted.gpg.d/packages.microsoft.gpg
   - /etc/apt/trusted.gpg.d/packages.spotify.gpg
 
 repositories:
+  - deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+  - deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ ansible_lsb.codename }} contrib
   - deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main
   - deb http://repository.spotify.com stable non-free
 
 repositories_names:
+  - google
+  - virtualbox
   - vscode
   - spotify
 
 gui_utilities:
 #  - code
+  - google-chrome-stable
   - nautilus-nextcloud
   - nextcloud-desktop
+  - revelation
+  - tilix
+#  - virtualbox-6.1
 #  - spotify-client
 
 deb_urls:
   - https://discord.com/api/download?platform=linux&format=deb
+  - https://downloads.slack-edge.com/releases/linux/{{ slack_version }}/prod/x64/slack-desktop-{{ slack_version }}-amd64.deb
