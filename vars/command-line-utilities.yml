@@ -1,63 +1,41 @@
 ---
 # vars file for ansible/command-line-utilities
 
-#binaries_name:
-#  - minikube
-
-#binaries_url:
-#  - https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-
 keys:
+  - https://packages.cloud.google.com/apt/doc/apt-key.gpg
   - https://download.docker.com/linux/ubuntu/gpg
-#  - https://apt.releases.hashicorp.com/gpg
-#  - https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  - https://apt.releases.hashicorp.com/gpg
 
 keys_paths:
-  - /usr/share/keyrings/docker-archive-keyring.gpg
-#  - /usr/share/keyrings/hashicorp-keyring.gpg
-#  - /usr/share/keyrings/kubernetes-archive-keyring.gpg
+  - /usr/share/keyrings/google-cloud-keyring.gpg
+  - /usr/share/keyrings/docker-keyring.gpg
+  - /usr/share/keyrings/hashicorp-keyring.gpg
 
 repositories:
+  - deb [signed-by=/usr/share/keyrings/google-cloud-keyring.gpg] https://packages.cloud.google.com/apt cloud-sdk main
   - deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
-#  - deb [arch=amd64 signed-by=/usr/share/keyrings/hasicorp-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release | lower }} main
-#  - deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
+  - deb [arch=amd64 signed-by=/usr/share/keyrings/hashicorp-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_lsb.codename }} main
 
 repositories_names:
+  - cloud-sdk
   - docker
-#  - hashicorp
-#  - kubernetes
+  - hashicorp
 
 command_line_utilities:
   - apt-transport-https
   - ca-certificates
-#  - containerd.io
+  - containerd.io
   - curl
   - default-jre
-#  - docker-ce
-#  - docker-ce-cli
-  - fzf
+  - docker-ce
+  - docker-ce-cli
   - gcc
   - gnupg
-  - htop
-  - iftop
-  - imagemagick
-  - iotop
-#  - kubectl
-#  - libguestfs-tools
-#  - libvirt-clients
-#  - libvirt-daemon-system
   - make
-  - ncdu
   - net-tools
   - nmap
-  - pandoc
-#  - python3-docker
-#  - python3-psutil
-#  - qemu-kvm
   - shellcheck
   - smbclient
-# - terraform
   - tmux
   - tree
-  - weasyprint
-  - zsh
+  - vagrant

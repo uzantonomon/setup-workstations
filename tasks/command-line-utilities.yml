@@ -30,23 +30,3 @@
     name: '{{ command_line_utilities }}'
     state: latest
   become: true
-
-- name: Get Joplin.
-  get_url:
-    url: https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh
-    dest: /tmp/joplin-installer.sh
-    mode: 0755
-
-- name: Install Joplin.
-  shell: /tmp/joplin-installer.sh
-
-#- name: Install binaries.
-#  get_url:
-#    url: "{{ item.0 }}"
-#    dest: "/usr/local/bin/{{ item.1 }}"
-#    force: yes
-#    mode: 0755
-#  with_together:
-#    - "{{ binaries_url }}"
-#    - "{{ binaries_name }}"
-#  become: true

@@ -1,5 +1,5 @@
 ---
 username: "{{ ansible_user_id }}"
-shell: /usr/bin/bash
-local_groups: 
 slack_version: 4.25.0
+local_groups:
+shell:
